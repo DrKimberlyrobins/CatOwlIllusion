@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cat or Owl?</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #202020 0%, #050505 75%);
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.stage {
+    width: min(100vw, 500px);
+    height: 100vh;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.title {
+    margin-top: 38px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    opacity: .85;
+}
+
+.illusion {
+    width: 92%;
+    max-width: 430px;
+    margin-top: 35px;
+    position: relative;
+}
+
+svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.line {
+    fill: none;
+    stroke: white;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition:
+        stroke 1s ease,
+        opacity 1s ease,
+        stroke-width 1s ease;
+
+    filter: drop-shadow(0 0 4px rgba(255,255,255,.25));
+}
+
+.cat-line.highlight {
+    stroke: #ffcf40;
+    stroke-width: 10;
+}
+
+.owl-line.highlight {
+    stroke: #5cddff;
+    stroke-width: 10;
+}
+
+.dim {
+    opacity: .12;
+}
+
+.answer {
+    margin-top: 20px;
+    min-height: 60px;
+    font-size: 34px;
+    font-weight: bold;
+    text-align: center;
+
+    opacity: 0;
+    transform: scale(.8);
+
+    transition:
+        opacity .6s ease,
+        transform .6s ease;
+}
+
+.answer.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.bottom {
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    opacity: .75;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stage">
+
+    <div class="title">
+        👀 WHAT DO YOU SEE FIRST?
+    </div>
+
+    <div class="subtitle">
+        Look closely...
+    </div>
+
+    <div class="illusion">
+
+        <svg viewBox="0 0 500 600"
+             xmlns="http://www.w3.org/2000/svg">
+
+            <!-- OUTER HEAD -->
+            <path
+                class="line cat-line owl-line"
+                d="
+                M90 205
+                Q55 125 82 42
+                Q150 75 190 125
+                Q250 105 310 125
+                Q350 75 418 42
+                Q445 125 410 205
+                Q452 275 425 370
+                Q400 465 325 515
+                Q285 545 250 565
+                Q215 545 175 515
+                Q100 465 75 370
+                Q48 275 90 205
+                "
+            />
+
+            <!-- LEFT INNER SWEEP -->
+            <path
+                class="line owl-line"
+                d="
+                M92 88
+                Q125 150 185 175
+                Q225 195 245 285
+                "
+            />
+
+            <!-- RIGHT INNER SWEEP -->
+            <path
+                class="line owl-line"
+                d="
+                M408 88
+                Q375 150 315 175
+                Q275 195 255 285
+                "
+            />
+
+            <!-- LEFT EYE -->
+            <ellipse
+                class="line owl-line"
+                cx="165"
+                cy="270"
+                rx="76"
+                ry="92"
+            />
+
+            <!-- RIGHT EYE -->
+            <ellipse
+                class="line owl-line"
+                cx="335"
+                cy="270"
+                rx="76"
+                ry="92"
+            />
+
+            <!-- LEFT PUPIL -->
+            <ellipse
+                class="line cat-line owl-line"
+                cx="170"
+                cy="270"
+                rx="20"
+                ry="35"
+            />
+
+            <!-- RIGHT PUPIL -->
+            <ellipse
+                class="line cat-line owl-line"
+                cx="330"
+                cy="270"
+                rx="20"
+                ry="35"
+            />
+
+            <!-- CAT NOSE / OWL BEAK -->
+            <path
+                class="line cat-line owl-line"
+                d="
+                M220 340
+                Q250 325 280 340
+                L250 378
+                Z
+                "
+            />
+
+            <!-- CAT MOUTH -->
+            <path
+                class="line cat-line"
+                d="
+                M250 378
+                Q235 415 195 420
+
+                M250 378
+                Q265 415 305 420
+                "
+            />
+
+            <!-- LEFT WHISKERS -->
+            <path
+                class="line cat-line"
+                d="
+                M210 365 Q145 340 65 350
+                M205 385 Q135 380 58 405
+                M210 405 Q145 420 78 465
+                "
+            />
+
+            <!-- RIGHT WHISKERS -->
+            <path
+                class="line cat-line"
+                d="
+                M290 365 Q355 340 435 350
+                M295 385 Q365 380 442 405
+                M290 405 Q355 420 422 465
+                "
+            />
+
+            <!-- OWL BEAK -->
+            <path
+                class="line owl-line"
+                d="
+                M220 340
+                L250 425
+                L280 340
+                "
+            />
+
+            <!-- OWL LOWER FEATHERS -->
+            <path
+                class="line owl-line"
+                d="
+                M160 430
+                Q195 455 215 500
+                Q235 475 250 535
+                Q265 475 285 500
+                Q305 455 340 430
+                "
+            />
+
+        </svg>
+
+    </div>
+
+    <div class="answer" id="answer"></div>
+
+    <div class="bottom">
+        Don't change your answer! 👀
+    </div>
+
+</div>
+
+<script>
+
+const answer =
+    document.getElementById("answer");
+
+const catLines =
+    document.querySelectorAll(".cat-line");
+
+const owlLines =
+    document.querySelectorAll(".owl-line");
+
+const allLines =
+    document.querySelectorAll(".line");
+
+
+function resetIllusion() {
+
+    allLines.forEach(line => {
+
+        line.classList.remove(
+            "highlight",
+            "dim"
+        );
+
+    });
+
+    answer.classList.remove("show");
+    answer.textContent = "";
+}
+
+
+function showCat() {
+
+    resetIllusion();
+
+    owlLines.forEach(line => {
+
+        if (!line.classList.contains("cat-line")) {
+            line.classList.add("dim");
+        }
+
+    });
+
+    catLines.forEach(line => {
+        line.classList.add("highlight");
+    });
+
+    answer.textContent = "🐱 CAT";
+
+    setTimeout(() => {
+        answer.classList.add("show");
+    }, 300);
+}
+
+
+function showOwl() {
+
+    resetIllusion();
+
+    catLines.forEach(line => {
+
+        if (!line.classList.contains("owl-line")) {
+            line.classList.add("dim");
+        }
+
+    });
+
+    owlLines.forEach(line => {
+        line.classList.add("highlight");
+    });
+
+    answer.textContent = "🦉 OWL";
+
+    setTimeout(() => {
+        answer.classList.add("show");
+    }, 300);
+}
+
+
+function startIllusion() {
+
+    resetIllusion();
+
+    /* 7 seconds to choose */
+    setTimeout(() => {
+        showCat();
+    }, 7000);
+
+    /* Reveal owl */
+    setTimeout(() => {
+        showOwl();
+    }, 10500);
+
+    /* Back to original */
+    setTimeout(() => {
+        resetIllusion();
+    }, 14000);
+}
+
+
+/* Start first round */
+startIllusion();
+
+
+/* Repeat for recording */
+setInterval(() => {
+    startIllusion();
+}, 17000);
+
+</script>
+
+</body>
+</html>
