@@ -371,31 +371,52 @@ function startIllusion() {
 
     resetIllusion();
 
-    /* 7 seconds to choose */
+    /*
+       Give viewers 45 seconds
+       to look and make their guess.
+    */
+
     setTimeout(() => {
         showCat();
-    }, 7000);
+    }, 45000);
 
-    /* Reveal owl */
+
+    /*
+       Show the CAT from
+       45 seconds to 55 seconds.
+    */
+
     setTimeout(() => {
         showOwl();
-    }, 10500);
+    }, 55000);
 
-    /* Back to original */
+
+    /*
+       Show the OWL until
+       1 minute 5 seconds.
+       Then return to the mystery picture.
+    */
+
     setTimeout(() => {
         resetIllusion();
-    }, 14000);
+    }, 65000);
+
 }
 
 
-/* Start first round */
+/* START THE FIRST ROUND */
+
 startIllusion();
 
 
-/* Repeat for recording */
+/*
+   Start over after
+   1 minute 10 seconds.
+*/
+
 setInterval(() => {
     startIllusion();
-}, 17000);
+}, 70000);
 
 </script>
 
